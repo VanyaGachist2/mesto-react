@@ -5,7 +5,6 @@ function Card({id, title, image, likeCounter, onClick}) {
   const handleCardClick = () => {
     onClick(title, image)
   }
-
   return (
     <li className="element__item" key={id}>
       <img className="element__image" src={image} alt={title} onClick={handleCardClick} />
