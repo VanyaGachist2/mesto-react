@@ -71,6 +71,7 @@ function App() {
         isOpen={isAddPopupOpen}
         name="add"
         click="save"
+        buttonText="Создать"
         onClose={closeAllPopups}
         >
         <label className="popup__label">
@@ -100,6 +101,7 @@ function App() {
         isOpen={isEditPopupOpen}
         name="edit"
         click="save"
+        buttonText="Сохранить"
         onClose={closeAllPopups}
         >
         <label className="popup__label">
@@ -134,6 +136,7 @@ function App() {
         isOpen={isAvatarPopupOpen}
         name="avatar"
         click="save"
+        buttonText="Сохранить"
         onClose={closeAllPopups}
         >
         <label className="popup__label popup__label_one">
