@@ -5,9 +5,9 @@ function Main({avatarPopup, editPopup, addPopup, cards, userData, imagePopup}) {
     <div>
       <main className="content">
         <section className="profile">
-          <div className="profile__pencil" onClick={avatarPopup}>
+          <button className="profile__pencil" type='button' onClick={avatarPopup}>
             <img src={userData.avatar} alt="аватарка" className="profile__image" />
-          </div>
+          </button>
           <div className="profile__info">
             <h1 className="profile__heading">{userData.name}</h1>
             <p className="profile__subtitle">{userData.about}</p>
