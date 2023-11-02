@@ -5,6 +5,7 @@
   padding: 0;
   border-radius: 50%;
   background-color: transparent;
+  border: none;
   position: relative;
 }
 
