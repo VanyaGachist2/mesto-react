@@ -52,15 +52,6 @@ class Api {
     .then(this._ifcheck)
   }
 
-  // Добавление новой карточки
-  addLiked(id) {
-    return fetch(`${this._url}/cards/${id}/likes`, {
-      method: 'PUT',
-      headers: this._headers
-    })
-    .then(this._ifcheck)
-  }
-
   // Удаление карточки
   deleteCard(id) {
     return fetch(`${this._url}/cards/${id}`, {
@@ -73,6 +64,14 @@ class Api {
   deleteLike(id) {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: 'DELETE',
+      headers: this._headers
+    })
+    .then(this._ifcheck)
+  }
+
+  addLiked(id) {
+    return fetch(`${this._url}/cards/${id}/likes`, {
+      method: 'PUT',
       headers: this._headers
     })
     .then(this._ifcheck)
