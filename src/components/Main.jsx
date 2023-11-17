@@ -1,6 +1,9 @@
 import Card from './Card.jsx';
+import CurrentUserContext from '../contexts/CurrentUserContext.js';
+import { useContext } from 'react';
 
-function Main({avatarPopup, editPopup, addPopup, cards, userData, imagePopup}) {
+function Main({avatarPopup, editPopup, addPopup, cards, imagePopup, onDelete, onLike}) {
+  const userData = useContext(CurrentUserContext);
   return (
     <div>
       <main className="content">
@@ -20,11 +23,14 @@ function Main({avatarPopup, editPopup, addPopup, cards, userData, imagePopup}) {
             {
               cards.map((card) => (
                 <Card
+                card={card}
                 key={card._id}
                 title={card.name}
                 image={card.link}
                 likeCounter={card.likes.length}
                 onClick={imagePopup}
+                onDelete={onDelete}
+                onLike={onLike}
                 />
               ))
             }
