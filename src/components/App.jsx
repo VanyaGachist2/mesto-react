@@ -16,24 +16,14 @@ function App() {
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
   const [isAddPopupOpen, setIsAddPopupOpen] = useState(false);
   const [isAvatarPopupOpen, setIsAvatarPopupOpen] = useState(false);
-  const [userData, setUserData] = useState({
-    id: null,
-    name: '',
-    about: '',
-    avatar: ''
-  })
+  const [userData, setUserData] = useState({})
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     api.getInfo()
       .then((data) => {
-        setUserData({
-          id: data._id,
-          name: data.name,
-          about: data.about,
-          avatar: data.avatar
-        })
+        setUserData(data)
       })
       .catch((err) => {
         console.log(err);
@@ -106,7 +96,7 @@ function App() {
   function handleAddCard (data) {
     api.addCard(data)
      .then((newCards) => {
-      setCards([newCards, ...cards]);
+      setCards((cards) => [newCards, ...cards]);
       closeAllPopups();
      })
      .catch((err) => {
@@ -115,12 +105,12 @@ function App() {
   }
 
   function  handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === userData.id);
+    const isLiked = card.likes.some((i) => i._id === userData._id);
     const checkLike = !isLiked ? api.addLiked(card._id) : api.deleteLike(card._id);
     checkLike
       .then((newCard) => {
-        const newCards = cards.map((c) => (c._id === card._id ? newCard : c));
-        setCards(newCards);
+        setCards((newCards) =>
+          newCards.map((c) => (c._id === card._id ? newCard : c)));
       })
       .catch((err) => {
       console.log(err);
