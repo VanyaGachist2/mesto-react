@@ -5,8 +5,8 @@ import { useContext } from "react";
 function Card({card, id, title, image, likeCounter, onClick, onDelete, onLike}) {
 
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = card.owner._id !== currentUser.id;
-  const isLiked = card.likes.some((i) => i._id === currentUser.id);
+  const isOwn = card.owner._id !== currentUser._id;
+  const isLiked = card.likes.some((i) => i._id === currentUser._id);
   console.log(isLiked);
   const handleCardClick = () => {
     onClick(title, image)
