@@ -40,6 +40,7 @@ function AddCardPopup({ isOpen, onClose, addCard }) {
               name="input_name_second"
               className="popup__input popup__input_text_name-image"
               placeholder="Название"
+              value={name}
               required
               minLength="2"
               maxLength="30"
@@ -53,6 +54,7 @@ function AddCardPopup({ isOpen, onClose, addCard }) {
               name="input_image"
               className="popup__input popup__input_href-image"
               placeholder="Ссылка на картинку"
+              value={link}
               required
               onChange={getLink}
               />
